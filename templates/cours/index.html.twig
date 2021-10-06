@@ -1,16 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoursController!{% endblock %}
+{% block title %}Liste des cours{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <script>
+    let locations = window.location.href;
+      locations = locations.substr(0,locations.length-5);
+    console.log(locations.substr(0,locations.length-5));
+  </script>
+  <h1>Liste des cours disponible</h1> <!-- Titre à revoir -->
+  <div class="cours_block">
+    {% for cour in cours %}  <!-- affiche chaque cours -->
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+      <div class="cour_block" style="cursor: pointer;" onclick="window.location= locations + 'cour?num=' + {{cour["id_contenu"]}};"> <!-- affiche les détailles d'une leçon -->
+        <h2 class="titre_cour">{{cour["titre"]}}</h2>
+        <h2 class="specialite">{{cour["specialite"]}}</h2>
+        <h2 class="matiere">{{cour["matiere"]}}</h2>
+        <h2 class="lvl">{{cour["lvl"]}}</h2>
+        <h2 class="auteur">{{cour["auteur"]}}</h2>
+        <h2 class="date">{{cour["date"]}}</h2>
+      </div>
+      <br>
 
-    {{cours[0]["titre"]}}
-</div>
+    {% endfor %}
+  </div>
 {% endblock %}
