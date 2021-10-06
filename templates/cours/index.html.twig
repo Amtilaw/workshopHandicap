@@ -13,12 +13,12 @@
     {% for cour in cours %}  <!-- affiche chaque cours -->
 
       <div class="cour_block" style="cursor: pointer;" onclick="window.location= locations + 'cour?num=' + {{cour["id_contenu"]}};"> <!-- affiche les détailles d'une leçon -->
-        <h2 class="titre_cour">{{cour["titre"]}}</h2>
-        <h2 class="specialite">{{cour["specialite"]}}</h2>
-        <h2 class="matiere">{{cour["matiere"]}}</h2>
-        <h2 class="lvl">{{cour["lvl"]}}</h2>
-        <h2 class="auteur">{{cour["auteur"]}}</h2>
-        <h2 class="date">{{cour["date"]}}</h2>
+        <span class="titre_cour">{{cour["titre"]}}</span>
+        <span class="specialite">{{cour["specialite"]}}</span>
+        <span class="matiere">{{cour["matiere"]}}</span>
+        <span class="lvl">{{cour["lvl"]}}</span>
+        <span class="auteur">{{cour["auteur"]}}</span>
+        <span class="date">{{cour["date"]}}</span>
       </div>
       <br>
 
