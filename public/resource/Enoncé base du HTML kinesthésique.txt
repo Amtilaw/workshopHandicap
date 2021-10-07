@@ -1,0 +1,4 @@
+a ajouter avant l'image :
+
+<p>Voici un programme que vous pouvez réécrire tout simplement dans le bloc note.</p>
+<p>Les URL utilisés vous sont fourni ci-dessous.</p>
