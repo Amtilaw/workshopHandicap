@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 07 oct. 2021 à 11:10
+-- Généré le : jeu. 07 oct. 2021 à 14:03
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -55,15 +55,17 @@ INSERT INTO `contenu` (`id_contenu`, `titre`, `auteur`, `date`, `lvl`, `matiere`
 CREATE TABLE `kinesthesique` (
   `id_kine` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL
+  `img` varchar(255) DEFAULT NULL,
+  `id_methode` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `kinesthesique`
 --
 
-INSERT INTO `kinesthesique` (`id_kine`, `text`, `img`) VALUES
-(1, 'Enoncé', 'url');
+INSERT INTO `kinesthesique` (`id_kine`, `text`, `img`, `id_methode`) VALUES
+(1, 'Enoncé', 'Les bases du HTML kinesthésique.png', 1),
+(4, 'ligne 7 : https://assets.afcdn.com/recipe/20170614/69595_w1024h1024c1cx2000cy3000.jpg\r\n', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -74,17 +76,16 @@ INSERT INTO `kinesthesique` (`id_kine`, `text`, `img`) VALUES
 CREATE TABLE `methode` (
   `id_methode` int(11) NOT NULL,
   `auditif` varchar(255) NOT NULL,
-  `visuel` text NOT NULL,
-  `kine_id` int(11) DEFAULT NULL
+  `visuel` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `methode`
 --
 
-INSERT INTO `methode` (`id_methode`, `auditif`, `visuel`, `kine_id`) VALUES
-(1, 'url', ',cikzkezoiezj', NULL),
-(2, 'url', '<html></html>', NULL);
+INSERT INTO `methode` (`id_methode`, `auditif`, `visuel`) VALUES
+(1, 'url', 'visu.pdf'),
+(2, 'url', '<html></html>');
 
 --
 -- Index pour les tables déchargées
@@ -101,14 +102,14 @@ ALTER TABLE `contenu`
 -- Index pour la table `kinesthesique`
 --
 ALTER TABLE `kinesthesique`
-  ADD PRIMARY KEY (`id_kine`);
+  ADD PRIMARY KEY (`id_kine`),
+  ADD KEY `id_methode` (`id_methode`);
 
 --
 -- Index pour la table `methode`
 --
 ALTER TABLE `methode`
-  ADD PRIMARY KEY (`id_methode`),
-  ADD UNIQUE KEY `kine_id` (`kine_id`);
+  ADD PRIMARY KEY (`id_methode`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -124,7 +125,7 @@ ALTER TABLE `contenu`
 -- AUTO_INCREMENT pour la table `kinesthesique`
 --
 ALTER TABLE `kinesthesique`
-  MODIFY `id_kine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_kine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `methode`
@@ -141,12 +142,6 @@ ALTER TABLE `methode`
 --
 ALTER TABLE `contenu`
   ADD CONSTRAINT `id_methode` FOREIGN KEY (`id_methode`) REFERENCES `methode` (`id_methode`);
-
---
--- Contraintes pour la table `methode`
---
-ALTER TABLE `methode`
-  ADD CONSTRAINT `methode_ibfk_1` FOREIGN KEY (`kine_id`) REFERENCES `kinesthesique` (`id_kine`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
