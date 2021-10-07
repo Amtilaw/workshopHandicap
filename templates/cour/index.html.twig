@@ -11,4 +11,8 @@
     <span>{{cour[0]["auteur"]}}</span>
     <span>{{cour[0]["date"]}}</span>
   </div>
+  <br><br>
+  <a href="visuel?num={{cour[0]["id_methode"]}}"><button value="Visuel">Visuel</button></a>
+  <a href="auditif?num={{cour[0]["id_methode"]}}"><button value="auditif">auditif</button></a>
+  <a href="kine?num={{cour[0]["id_methode"]}}"><button value="kine">kinesthesique</button></a>
 {% endblock %}
