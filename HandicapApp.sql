@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 07 oct. 2021 à 14:03
+-- Généré le : jeu. 07 oct. 2021 à 16:06
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -65,7 +65,8 @@ CREATE TABLE `kinesthesique` (
 
 INSERT INTO `kinesthesique` (`id_kine`, `text`, `img`, `id_methode`) VALUES
 (1, 'Enoncé', 'Les bases du HTML kinesthésique.png', 1),
-(4, 'ligne 7 : https://assets.afcdn.com/recipe/20170614/69595_w1024h1024c1cx2000cy3000.jpg\r\n', NULL, 1);
+(4, 'ligne 7 : https://assets.afcdn.com/recipe/20170614/69595_w1024h1024c1cx2000cy3000.jpg\r\n', NULL, 1),
+(5, 'ligne 8 : https://assets.afcdn.com/recipe/20170621/69747_origin.jpg\r\n', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE `methode` (
 --
 
 INSERT INTO `methode` (`id_methode`, `auditif`, `visuel`) VALUES
-(1, 'url', 'visu.pdf'),
+(1, 'audio.mp3', 'visu.pdf'),
 (2, 'url', '<html></html>');
 
 --
@@ -125,7 +126,7 @@ ALTER TABLE `contenu`
 -- AUTO_INCREMENT pour la table `kinesthesique`
 --
 ALTER TABLE `kinesthesique`
-  MODIFY `id_kine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `methode`

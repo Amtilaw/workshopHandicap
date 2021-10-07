@@ -16,7 +16,7 @@ class KineController extends AbstractController
     {
         $i = $_GET["num"];    
         $kine = $connection->fetchAll("SELECT * FROM kinesthesique WHERE id_methode = ". $i);
-        if (isset($kine)){
+        if (!isset($kine[0]["img"])){
           $kine[0]["img"] = "";
           $kine[0]["text"]= "";
         }
