@@ -15,7 +15,8 @@ class VisuelController extends AbstractController
     public function index(Connection $connection): Response
     {
 
-      $imgUrl = $connection->fetchAll("SELECT visuel FROM methode");
+      $i = $_GET["num"];
+      $imgUrl = $connection->fetchAll("SELECT visuel FROM methode WHERE id_methode = ". $i);
 
         return $this->render('visuel/index.html.twig', [
             'controller_name' => 'VisuelController',
